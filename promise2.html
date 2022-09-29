@@ -16,12 +16,12 @@ function saveToCloudAsync(userData) {               // returns a promise obj
       }
           
       // Simulate saving taking 2 seconds
-      setTimeout(()=>resolve("data is " + userData), 2000);
+      setTimeout(()=>resolve("data is: " + userData), 2000);
    });
 }
 
 // test it...
-let result = saveToCloudAsync() // try sending null
+let result = saveToCloudAsync("testing...") // try sending null
 console.log(typeof(result))
 console.log(result)
 
