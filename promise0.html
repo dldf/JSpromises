@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <h1>0</h1>
+   <h2>JavaScript Promise zyBook Examples</h2>
+   <p>Open Console to see script output.</p>
+   <p>Open Source to see Promise code, comments.</p>
+
+<script>
+
+// async functions return a promise -- keyword async
+async function saveToCloudAsync(userData) {
+   if (!userData) {
+      return "no data";
+   }
+         
+   // Simulate saving taking 2 seconds -- keyword await
+   await setTimeout(()=>{"done"}, 2000);
+}
+
+
+// test it...
+let result = saveToCloudAsync("be the ball") // try sending null
+console.log(typeof(result))
+console.log(result)
+
+
+
+</script>
+
+</body>
+</html>
