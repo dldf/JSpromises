@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <h1>3</h1>
+   <h2>JavaScript Promise zyBook Examples</h2>
+   <p>Open Console to see script output.</p>
+   <p>Open Source to see Promise code, comments.</p>
+
+<script>
+
+function saveToCloudAsync(userData) {               // returns a promise obj
+   return new Promise(function(resolve, reject) {   // executor fn: 2 params
+      if (!userData) {
+         reject("no data");
+      }
+          
+      // Simulate saving taking 2 seconds
+      setTimeout(()=>resolve("data is " + userData), 2000);
+   });
+}
+
+// zyBook 8.11.6
+function saveUserData(data) {
+   let promise = saveToCloudAsync("my data"); // just gets the returned promise 
+   promise.then(dataSaved, saveFailed)        // and calls fn dep. on state
+}
+
+function dataSaved() {
+    console.log("Saved to cloud :D")
+    console.log("Don't ask me what data though. I have no param yet...")
+}
+
+function saveFailed() {
+    console.log("Save failed :P")
+    console.log("That's all I know.")
+}
+
+// test it...
+result = saveUserData("my data")
+console.log(result)
+
+</script>
+
+</body>
+</html>

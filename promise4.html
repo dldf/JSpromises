@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <h1>4</h1>
+   <h2>JavaScript Promise zyBook Examples</h2>
+   <p>Open Console to see script output.</p>
+   <p>Open Source to see Promise code, comments.</p>
+
+<script>
+
+// our async function that returns a promise  
+function saveToCloudAsync(userData) { 
+    // the Promise constructor take one parameter: an executive fn 
+    // the exutive fn takes two parameters: callbacks for resolve, reject  
+    // the return value is a promise object in 1 of 3 states:
+    // pending, fulfilled or rejected (we can call fns for the last two)         
+   return new Promise(function(resolve, reject) {
+      if (!userData) {
+         reject("no data"); // call reject with data param
+      }
+          
+      // Simulate saving taking 2 seconds  call resolve with data param
+      setTimeout(()=>resolve("user says, " + userData), 2000);
+   });
+}
+
+// zyBook 8.11.8
+function saveUserData(data) {
+   let promise = saveToCloudAsync(data); // just gets the returned promise 
+   promise.then(dataSaved, saveFailed)   // and calls fn dep. on state
+}
+
+function dataSaved(whatdata) { // parameter comes from resolve
+    console.log("Saved to cloud :D")
+    console.log("Data: " + whatdata)
+}
+
+function saveFailed(whyfail) { // parameter comes from reject
+    console.log("Save failed :P")
+    console.log("Error messgage is: " + whyfail)
+}
+
+// test it...
+result = saveUserData("Kookseverywhere!!") // try null
+console.log(result)
+
+</script>
+
+</body>
+</html>
