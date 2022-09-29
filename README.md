@@ -1,5 +1,5 @@
 # JSpromises
-Taking a zyBook example of JavaScript Promises through a four steps:
+Taking a zyBook example of JavaScript Promises through four steps:
 
 1. set up a basic fn that returns a promise
 2. adding argument data to the resolve and reject states
